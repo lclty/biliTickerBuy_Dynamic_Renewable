@@ -1,28 +1,27 @@
 <div align="center">
-  <a href="https://github.com/mikumifa/biliTickerBuy" target="_blank">
+  <a href="https://github.com/lclty/biliTickerBuy_Dynamic_Renewable" target="_blank">
     <img width="160" src="assets/icon.ico" alt="logo">
   </a>
   <h2 id="koishi">biliTickerBuy</h1>
 
 <p>
   <!-- GitHub Downloads -->
-  <a href="https://github.com/mikumifa/biliTickerBuy/releases">
-    <img src="https://img.shields.io/github/downloads/mikumifa/biliTickerBuy/total" alt="GitHub all releases">
+  <a href="https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/releases">
+    <img src="https://img.shields.io/github/downloads/lclty/biliTickerBuy_Dynamic_Renewable/total" alt="GitHub all releases">
   </a>
   <!-- GitHub Release Version -->
-  <a href="https://github.com/mikumifa/biliTickerBuy/releases">
-    <img src="https://img.shields.io/github/v/release/mikumifa/biliTickerBuy" alt="GitHub release (with filter)">
+  <a href="https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/releases">
+    <img src="https://img.shields.io/github/v/release/lclty/biliTickerBuy_Dynamic_Renewable" alt="GitHub release (with filter)">
   </a>
   <!-- GitHub Issues -->
-  <a href="https://github.com/mikumifa/biliTickerBuy/issues">
-    <img src="https://img.shields.io/github/issues/mikumifa/biliTickerBuy" alt="GitHub issues">
+  <a href="https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/issues">
+    <img src="https://img.shields.io/github/issues/lclty/biliTickerBuy_Dynamic_Renewable" alt="GitHub issues">
   </a>
   <!-- GitHub Stars -->
-  <a href="https://github.com/mikumifa/biliTickerBuy/stargazers">
-    <img src="https://img.shields.io/github/stars/mikumifa/biliTickerBuy" alt="GitHub Repo stars">
+  <a href="https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/stargazers">
+    <img src="https://img.shields.io/github/stars/lclty/biliTickerBuy_Dynamic_Renewable" alt="GitHub Repo stars">
   </a>
 </p>
-<a href="https://trendshift.io/repositories/11145" target="_blank"><img src="https://trendshift.io/api/badge/repositories/11145" alt="mikumifa%2FbiliTickerBuy | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 这是一个开源免费，简单易用的B站会员购辅助工具
 </div>
@@ -34,29 +33,44 @@
 
 ## 💻 快速安装
 
-[下载链接](https://github.com/mikumifa/biliTickerBuy/releases) 
 
-## 👀 使用说明书
-前往飞书： https://n1x87b5cqay.feishu.cn/wiki/Eg4xwt3Dbiah02k1WqOcVk2YnMd
+尚在完善中，不提供快速安装方式。
+
+## 源代码构建
+
+开发者使用的 Python 版本为 Python 3.11.9
+
+    git clone https://github.com/lclty/biliTickerBuy_Dynamic_Renewable
+    cd ./biliTickerBuy_Dynamic_Renewable
+    python -m venv ./venv_py3119
+
+    # Linux
+    ./venv_py319/bin/activate
+    # Windows
+    ./venv_py319/Scripts/activate
+
+    pip install -r ./requirements
+
+    #对于 Windows OR macOS, Chrome
+    playwright install chrome
+    #对于 Windows OR macOS, Edge
+    playwright install msedge
+    #对于 Linux, 请自行采用其它方式获取 Cookie
+
+    python ./main.py
 
 ## ❗ 项目问题
 
-程序使用问题： [点此链接前往discussions](https://github.com/mikumifa/biliTickerBuy/discussions)
+程序使用问题： [点此链接前往discussions](https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/discussions)
 
-反馈程序BUG或者提新功能建议： [点此链接向项目提出反馈BUG](https://github.com/mikumifa/biliTickerBuy/issues/new/choose)
+反馈程序BUG或者提新功能建议： [点此链接向项目提出反馈BUG](https://github.com/lclty/biliTickerBuy_Dynamic_Renewable/issues/new/choose)
 
 
 
-## 🤩 项目贡献者
-
-<a href="https://github.com/mikumifa/biliTickerBuy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=mikumifa/biliTickerBuy&preview=true&max=&columns=" />
-</a>
-<br /><br />
 
 ## ⭐️ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mikumifa/biliTickerBuy&type=Date)](https://www.star-history.com/#mikumifa/biliTickerBuy&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=lclty/biliTickerBuy_Dynamic_Renewable&type=Date)](https://www.star-history.com/#lclty/biliTickerBuy_Dynamic_Renewable&Date)
 
 ## 📩 免责声明
 
