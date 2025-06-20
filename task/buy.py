@@ -29,18 +29,18 @@ def get_qrcode_url(_request, order_id) -> str:
 
 
 def buy_stream(
-        tickets_info_str,
-        time_start,
-        interval,
-        mode,
-        total_attempts,
-        audio_path,
-        pushplusToken,
-        serverchanKey,
-        https_proxys,
-        ntfy_url=None,
-        ntfy_username=None,
-        ntfy_password=None,
+    tickets_info_str,
+    time_start,
+    interval,
+    mode,
+    total_attempts,
+    audio_path,
+    pushplusToken,
+    serverchanKey,
+    https_proxys,
+    ntfy_url=None,
+    ntfy_username=None,
+    ntfy_password=None,
 ):
     if bili_ticket_gt_python is None:
         yield "当前设备不支持本地过验证码，无法使用"
@@ -224,12 +224,12 @@ def buy_stream(
                     # 使用重复通知功能，每10秒发送一次，持续5分钟
                     NtfyUtil.send_repeat_message(
                         ntfy_url,
-                        f"抢票成功，bilibili会员购，请尽快前往订单中心付款",
+                        "抢票成功，bilibili会员购，请尽快前往订单中心付款",
                         title="Bili Ticket Payment Reminder",
                         username=ntfy_username,
                         password=ntfy_password,
                         interval_seconds=15,
-                        duration_minutes=5
+                        duration_minutes=5,
                     )
                     yield "已启动重复通知，将每15秒发送一次提醒，持续5分钟"
 
@@ -251,6 +251,20 @@ def buy_stream(
 
 
 def buy(
+    tickets_info_str,
+    time_start,
+    interval,
+    mode,
+    total_attempts,
+    audio_path,
+    pushplusToken,
+    serverchanKey,
+    https_proxys,
+    ntfy_url=None,
+    ntfy_username=None,
+    ntfy_password=None,
+):
+    for msg in buy_stream(
         tickets_info_str,
         time_start,
         interval,
@@ -260,42 +274,29 @@ def buy(
         pushplusToken,
         serverchanKey,
         https_proxys,
-        ntfy_url=None,
-        ntfy_username=None,
-        ntfy_password=None,
-):
-    for msg in buy_stream(
-            tickets_info_str,
-            time_start,
-            interval,
-            mode,
-            total_attempts,
-            audio_path,
-            pushplusToken,
-            serverchanKey,
-            https_proxys,
-            ntfy_url,
-            ntfy_username,
-            ntfy_password,
+        ntfy_url,
+        ntfy_username,
+        ntfy_password,
     ):
         logger.info(msg)
 
 
 def buy_new_terminal(
-        endpoint_url,
-        filename,
-        tickets_info_str,
-        time_start,
-        interval,
-        mode,
-        total_attempts,
-        audio_path,
-        pushplusToken,
-        serverchanKey,
-        https_proxys,
-        ntfy_url=None,
-        ntfy_username=None,
-        ntfy_password=None,
+    endpoint_url,
+    filename,
+    tickets_info_str,
+    time_start,
+    interval,
+    mode,
+    total_attempts,
+    audio_path,
+    pushplusToken,
+    serverchanKey,
+    https_proxys,
+    ntfy_url=None,
+    ntfy_username=None,
+    ntfy_password=None,
+    terminal_ui="网页",
 ) -> subprocess.Popen:
     command = [sys.executable]
     if not getattr(sys, "frozen", False):
@@ -325,7 +326,12 @@ def buy_new_terminal(
         command.extend(["--ntfy_password", ntfy_password])
     if https_proxys:
         command.extend(["--https_proxys", https_proxys])
+    if terminal_ui:
+        command.extend(["--terminal_ui", terminal_ui])
     command.extend(["--filename", filename])
     command.extend(["--endpoint_url", endpoint_url])
-    proc = subprocess.Popen(command)
+    if terminal_ui == "网页":
+        proc = subprocess.Popen(command)
+    else:
+        proc = subprocess.Popen(command, creationflags=subprocess.CREATE_NEW_CONSOLE)
     return proc
